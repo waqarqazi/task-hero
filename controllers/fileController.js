@@ -59,7 +59,7 @@ const createShareableLink = async (req, res) => {
     file.views += 1;
     await file.save();
 
-    // Serve the file (you might want to adjust the path based on your setup)
+
     const filePath = path.join(__dirname, '../uploads', file.filename);
 
     if (fs.existsSync(filePath)) {
