@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI Workflow
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    if: github.event.pull_request.merged == true
 
     strategy:
       matrix:
@@ -28,6 +27,6 @@ jobs:
           echo MONGO_URI='${{ secrets.MONGO_URI }}' >> .env
           echo SERVER_PORT='${{ secrets.SERVER_PORT }}' >> .env
           cat .env
-      - run: npm i
+      - run: npm install
       - run: npm run
       - run: pm2 restart 0
