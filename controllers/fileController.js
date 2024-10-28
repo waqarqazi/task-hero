@@ -52,7 +52,7 @@ const createShareableLink = async (req, res) => {
     const file = await File.findOne({ shareId });
 
     if (!file) {
-      return res.status(404).json({ success: false, message: "File not found" });
+      return res.status(404).json({ success: false, message: "Fil not found" });
     }
 
     const filePath = path.join(__dirname, "..", file.url); 
